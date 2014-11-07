@@ -32,6 +32,7 @@ public class KNeighborsTest {
 	@Test
 	public void testLabelEmptyPoint() {
 		KNearestNeighbors kn = new KNearestNeighbors();
+		
 		kn.setK(1);
 		InputData data = InputTest.getInputData();
 		List<LabelExample> trainData = data.getExamples();

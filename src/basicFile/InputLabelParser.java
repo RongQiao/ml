@@ -15,9 +15,9 @@ public class InputLabelParser {
 	public static boolean parseHead(String str, InputDataLabel label) {
 		boolean ret = false;
 		if (str.length() >= 3) {
-			String c1 = str.substring(0, 1);
+			String c1 = str.substring(0, 2);
 			label.setNumRow(Integer.parseInt(c1));
-			String c2 = str.substring(2, 3);
+			String c2 = str.substring(3, 4);
 			label.setNumColumn(Integer.parseInt(c2));
 			ret = true;
 		}

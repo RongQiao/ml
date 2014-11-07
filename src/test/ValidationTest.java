@@ -22,7 +22,7 @@ public class ValidationTest {
 	public void testFold() {
 		InputData data = InputTest.getInputData();
 		KNearestNeighbors kn = new KNearestNeighbors();
-		kn.setK(2);
+		kn.setK(1);
 		CrossValidation cv = new CrossValidation();
 		cv.setKfold(data.getNumFolds());
 		List<LabelExample> examples = data.getExamples(1);

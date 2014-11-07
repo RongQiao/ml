@@ -16,6 +16,18 @@ import basicFile.InputLabelParser;
 
 public class KNearestNeighbors {
 	private int k=1;
+	KNNStrategy knnStrategy;
+
+	public KNearestNeighbors() {
+		setKnnStrategy(new KNNStrategyRandom());
+	}
+	public KNNStrategy getKnnStrategy() {
+		return knnStrategy;
+	}
+
+	public void setKnnStrategy(KNNStrategy knnStrategy) {
+		this.knnStrategy = knnStrategy;
+	}
 
 	public int getK() {
 		return k;
@@ -61,12 +73,12 @@ public class KNearestNeighbors {
 		return distMap;
 	}
 
-	private List<Character> getPossibleLabels(int k,
-			Map<Integer, Double> distMap, List<LabelExample> classifier) {
+	/*
+	 * get the K neighbors
+	 */
+	private List<Character> getKNearestNeighbor(int k, Map<Integer, Double> sortedMap, List<LabelExample> classifier) {
 		List<Character> possibleLabels = new ArrayList<Character>();
 		int cntNeighber = 0;
-		Map<Integer, Double> sortedMap = new TreeMap<Integer, Double>(new DistComparator(distMap));
-		sortedMap.putAll(distMap);
 		Set<Entry<Integer, Double>> entries = sortedMap.entrySet();
 		for (Entry<Integer, Double> en: entries) {
 			if (cntNeighber < k) {
@@ -79,6 +91,17 @@ public class KNearestNeighbors {
 				break;
 			}
 		}
+		return possibleLabels;
+
+	}
+
+
+	private List<Character> getPossibleLabels(int k,
+			Map<Integer, Double> distMap, List<LabelExample> classifier) {		
+		Map<Integer, Double> sortedMap = new TreeMap<Integer, Double>(new DistComparator(distMap));
+		sortedMap.putAll(distMap);
+		//List<Character> possibleLabels = this.knnStrategy.getKNearestNeighbor(k, sortedMap, classifier); 
+		List<Character> possibleLabels = getKNearestNeighbor(k, sortedMap, classifier);
 		return possibleLabels;
 	}
 

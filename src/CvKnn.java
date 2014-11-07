@@ -9,6 +9,7 @@ import output.OutputData;
 import basicFile.InputLabelParser;
 import basicFile.InputPermParser;
 import basicFile.TextFile;
+import kNeighbors.KNNStrategyRandom;
 import kNeighbors.KNearestNeighbors;
 import validation.AccuracyEstimate;
 import validation.CrossValidation;
