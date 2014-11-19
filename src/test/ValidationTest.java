@@ -20,7 +20,7 @@ public class ValidationTest {
 
 	@Test
 	public void testFold() {
-		InputData data = InputTest.getInputData();
+		InputData data = Hw1InputTest.getInputData();
 		KNearestNeighbors kn = new KNearestNeighbors();
 		kn.setK(1);
 		CrossValidation cv = new CrossValidation();

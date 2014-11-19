@@ -18,7 +18,7 @@ public class KNeighborsTest {
 	@Test
 	public void testKneighbor() {
 		KNearestNeighbors kn = new KNearestNeighbors();
-		InputData data = InputTest.getInputData();
+		InputData data = Hw1InputTest.getInputData();
 		List<LabelExample> trainData = data.getExamples(1);
 		char l = kn.calculateLabel(3,2,1,trainData);
 		assertTrue(l == '-');
@@ -34,7 +34,7 @@ public class KNeighborsTest {
 		KNearestNeighbors kn = new KNearestNeighbors();
 		
 		kn.setK(1);
-		InputData data = InputTest.getInputData();
+		InputData data = Hw1InputTest.getInputData();
 		List<LabelExample> trainData = data.getExamples();
 		List<LabelExample> testData = data.getEmptyPoints();
 		List<LabelExample> labeledData = kn.calculateLabel(testData, trainData);

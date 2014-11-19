@@ -15,7 +15,7 @@ import basicFile.InputLabelParser;
 import basicFile.InputPermParser;
 import basicFile.TextFile;
 
-public class InputTest {
+public class Hw1InputTest {
 
 	@Test
 	public void testCreateInput() {
